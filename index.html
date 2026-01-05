@@ -18,8 +18,8 @@
   <!-- Hero Section -->
   <section id="hero">
     <div class="hero-image">
-      <img src="https://images.unsplash.com/photo-1612831660913-8e5be4dc9f59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8aXBob25lJTIwcmVwYWlyfHx8fHx8MTY5NzQ0OTk4OQ&ixlib=rb-4.0.3&q=80&w=1080" alt="iPhone Repair">
-      <img src="https://images.unsplash.com/photo-1612831455547-d3f60e1d4b0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8bWFjYm9vayUyMHJlcGFpcnxlbnwwfHx8fDE2OTc0NTAwMTg&ixlib=rb-4.0.3&q=80&w=1080" class="overlay" alt="MacBook Repair">
+      <img src="https://images.unsplash.com/photo-1612831660913-8e5be4dc9f59?auto=format&fit=crop&w=1500&q=80" alt="iPhone Repair">
+      <img src="https://images.unsplash.com/photo-1555617117-08c27a3ee76e?auto=format&fit=crop&w=1500&q=80" class="overlay" alt="MacBook Repair">
     </div>
     <div class="hero-text">
       <h1>Victoria RePear</h1>
@@ -32,17 +32,17 @@
     <h2>Our Services</h2>
     <div class="services-container">
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1587202372775-80e3f8b8a9c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=500" alt="iPhone Repair">
+        <img src="https://images.unsplash.com/photo-1510557880182-3b9d55b4c0fc?auto=format&fit=crop&w=600&q=80" alt="iPhone Repair">
         <h3>iPhone Repairs</h3>
         <p>Screen, battery, water damage, and more. Contact for quote.</p>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1587825140708-fd00c1ff3b48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=500" alt="MacBook Repair">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="MacBook Repair">
         <h3>MacBook Repairs</h3>
         <p>Software issues, hardware repairs, diagnostics. Contact for quote.</p>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=500" alt="Electronics Help">
+        <img src="https://images.unsplash.com/photo-1587202372775-80e3f8b8a9c7?auto=format&fit=crop&w=600&q=80" alt="Electronics Help">
         <h3>Electronics & Computers</h3>
         <p>Software help, setup, troubleshooting, and more. Contact for quote.</p>
       </div>
@@ -52,13 +52,16 @@
   <!-- Contact Section -->
   <section id="contact">
     <h2>Contact</h2>
-    <form id="contactForm">
+    <!-- Formspree contact form -->
+    <form action="https://formspree.io/f/your-form-id" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit" class="cta">Send Message</button>
-      <p id="formStatus"></p>
     </form>
+    <p style="text-align:center;font-size:0.9rem;margin-top:1rem;">
+      Your message will be sent directly to <strong>service@victoriarepear.com</strong>.
+    </p>
   </section>
 
   <!-- Booking Section (Calendly) -->
@@ -68,7 +71,7 @@
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
   </section>
 
-  <!-- Fade-in and hero scroll script -->
+  <!-- Scripts -->
   <script>
     // Section fade-in
     const sections = document.querySelectorAll('section');
@@ -88,28 +91,6 @@
       const scrollY = window.scrollY;
       const overlay = hero.querySelector('.overlay');
       overlay.style.opacity = Math.min(scrollY / 300, 1);
-    });
-
-    // Contact form submission
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const status = document.getElementById('formStatus');
-
-      // Simple email submission using Formspree (replace URL with your Formspree endpoint)
-      const response = await fetch('https://formspree.io/f/mayvlrzd', {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if(response.ok){
-        status.textContent = "Message sent successfully!";
-        form.reset();
-      } else {
-        status.textContent = "There was an error. Please try again.";
-      }
     });
   </script>
 
