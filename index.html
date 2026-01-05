@@ -1,77 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Victoria RePear</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="nav">
-    <div class="nav-inner">
-      <h1>Victoria RePear</h1>
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-        <a href="#book" class="cta">Book</a>
-      </nav>
-    </div>
-  </header>
+/* --- General Styles --- */
+body {
+  font-family: -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-  <section class="hero">
-    <h2>Simple. Reliable. Home Tech Repair.</h2>
-    <p>On-site repairs for computers, printers, mobile devices, and home tech.</p>
-  </section>
+html {
+  scroll-behavior: smooth; /* Smooth scrolling for anchors */
+}
 
-  <section id="services">
-    <h3>Services</h3>
-    <ul>
-      <li>Computer setup & troubleshooting</li>
-      <li>Printer setup & repair</li>
-      <li>Mobile device support</li>
-      <li>Home Wi-Fi & network setup</li>
-    </ul>
-  </section>
+/* --- Navigation --- */
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+}
 
-  <section id="book">
-  <h3>Book an Appointment</h3>
-  <p>Schedule a visit at a time that works for you.</p>
-  <!-- Calendly Inline Widget -->
-  <div class="calendly-inline-widget" data-url="https://calendly.com/service-victoriarepear/30min" style="min-width:320px;height:630px;"></div>
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-</section>
+nav a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+}
 
+/* --- Smooth buttons / Apple-style --- */
+a.cta {
+  transition: background 0.3s ease, color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
 
-  <section id="book">
-    <h3>Book an Appointment</h3>
-    <p>Schedule a visit at a time that works for you.</p>
-    <!-- Calendly embed goes here -->
-  </section>
+a.cta:hover {
+  background: #111;
+  color: #fff;
+}
 
-  <section id="contact">
-    <h3>Contact</h3>
-    <p>Email: <a href="mailto:service@victoriarepear.com">info@victoriarepair.com</a></p>
-  </section>
+/* --- Sections --- */
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  scroll-margin-top: 100px; /* Adjust to nav height */
+  padding: 5rem 2rem;
+}
 
-  <footer>
-    <p>© 2026 Victoria RePear</p>
-  </footer>
-  <script>
-  // Fade-in sections on scroll
-  const sections = document.querySelectorAll('section');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
+/* Section visible when scrolled into view */
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  sections.forEach(section => observer.observe(section));
-</script>
-
-</body>
-</html>
-
+/* --- Calendly embed section --- */
+.calendly-inline-widget {
+  min-width: 320px;
+  height: 630px;
+}
