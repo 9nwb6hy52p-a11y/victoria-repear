@@ -54,6 +54,16 @@ section {
   margin: auto;
   padding: 4rem 1rem;
 }
+a.cta {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+a.cta:hover {
+  background: #111;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+}
 
 .hero {
   text-align: center;
