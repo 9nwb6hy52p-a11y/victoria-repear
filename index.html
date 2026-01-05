@@ -1,61 +1,67 @@
-/* --- General Styles --- */
-body {
-  font-family: -apple-system, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victoria RePear</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-html {
-  scroll-behavior: smooth; /* Smooth scrolling for anchors */
-}
+  <!-- Navigation -->
+  <nav>
+    <a href="#services">Services & Prices</a>
+    <a href="#contact">Contact</a>
+    <a href="#book" class="cta">Book</a>
+  </nav>
 
-/* --- Navigation --- */
-nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-  display: flex;
-  gap: 1rem;
-  padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.9);
-  z-index: 1000;
-}
+  <!-- Hero Section -->
+  <section id="hero">
+    <h1>Welcome to Victoria RePear</h1>
+    <p>Your trusted home services and repairs.</p>
+  </section>
 
-nav a {
-  text-decoration: none;
-  color: #111;
-  font-weight: 600;
-}
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Services & Prices</h2>
+    <ul>
+      <li>Computer setup – $50</li>
+      <li>Printer setup – $30</li>
+      <li>Wi-Fi setup – $40</li>
+      <li>Device repairs – starting $60</li>
+    </ul>
+  </section>
 
-/* --- Smooth buttons / Apple-style --- */
-a.cta {
-  transition: background 0.3s ease, color 0.3s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-}
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:contact@victoriarepears.com">contact@victoriarepears.com</a></p>
+    <p>Phone: +1 (555) 123-4567</p>
+  </section>
 
-a.cta:hover {
-  background: #111;
-  color: #fff;
-}
+  <!-- Booking Section (Calendly) -->
+  <section id="book">
+    <h2>Book an Appointment</h2>
+    <p>Schedule a visit at a time that works for you.</p>
+    <!-- Calendly Inline Widget -->
+    <div class="calendly-inline-widget" data-url="https://calendly.com/victoria-repear/30min"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </section>
 
-/* --- Sections --- */
-section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  scroll-margin-top: 100px; /* Adjust to nav height */
-  padding: 5rem 2rem;
-}
+  <!-- Fade-in script -->
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
-/* Section visible when scrolled into view */
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+    sections.forEach(section => observer.observe(section));
+  </script>
 
-/* --- Calendly embed section --- */
-.calendly-inline-widget {
-  min-width: 320px;
-  height: 630px;
-}
+</body>
+</html>
