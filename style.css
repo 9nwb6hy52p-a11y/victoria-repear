@@ -21,20 +21,17 @@ nav {
   z-index: 1000;
 }
 
-nav a {
+/* --- Apple-style buttons for all nav links --- */
+nav a.cta {
   text-decoration: none;
   color: #111;
   font-weight: 600;
-}
-
-/* --- Smooth buttons / Apple-style --- */
-a.cta {
   transition: background 0.3s ease, color 0.3s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  padding: 0.6rem 1rem;    
+  border-radius: 8px;
 }
 
-a.cta:hover {
+nav a.cta:hover {
   background: #111;
   color: #fff;
 }
